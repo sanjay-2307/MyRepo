@@ -43,7 +43,7 @@ pipeline {
 		stage('Push2DockerHub') {
 
 			steps {
-				sh 'docker push myapp sanjay2307/myapp:v1.0'
+				sh 'docker push sanjay2307/myapp:v1.0'
 			}
 		}
 
