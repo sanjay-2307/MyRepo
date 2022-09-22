@@ -49,7 +49,7 @@ pipeline {
 
 		stage("Deploy to K8s Cluster") {
             steps {
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'KMaster', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo kubectl apply -f deployment.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'deployment.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'KMaster', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo kubectl apply -f deployment.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
     		}
         }
 	}
